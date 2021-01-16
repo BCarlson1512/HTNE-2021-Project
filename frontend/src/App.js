@@ -20,7 +20,7 @@ function App() {
           <Route path="/login" component={loginScreen} />
           <Route path="/register/user" component={userRegisterScreen} />
           <Route path="/register/seller" component={sellerRegisterScreen} />
-          <Route path="/ticket/create" component={CreateTicketScreen} />
+          <Route path="/" component={CreateTicketScreen} />
           <Route path="/ticket/:_id" component={ViewTicketScreen} />
         </main>
         <footer>HTNE 2021 PROJECT ALL RIGHTS RESERVED</footer>

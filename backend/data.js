@@ -20,6 +20,16 @@ const data = {
             isSeller: true,
         },
     ],
+    tickets : [
+        {
+            email: 'email1@example.com',
+            userDescription: 'Testing seeding request',
+        },
+        {
+            email: 'email2@example.com',
+            userDescription: "Seed test",
+        }
+    ]
 }
 
 export default data;

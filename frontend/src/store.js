@@ -1,11 +1,17 @@
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
-import { createTicketReducer, listTicketReducer } from './reducers/ticketReducers';
+import { createTicketReducer, listTicketReducer, ticketInfoReducer } from './reducers/ticketReducers';
 import thunk from 'redux-thunk';
-const initialState = {};
+const initialState = {
+    ticketInfo: {
+        email: '',
+        desc: '',
+    }
+};
 
 const reducer = combineReducers({
     ticketCreate : createTicketReducer,
     listTicket : listTicketReducer,
+    infoTicket :ticketInfoReducer,
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

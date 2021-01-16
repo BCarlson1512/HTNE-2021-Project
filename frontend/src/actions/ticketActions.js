@@ -27,11 +27,11 @@ export const listMyTickets = () => async (dispatch) => {
     }
 }
 
-export const createTicket = (ticket) => async (dispatch) =>{
+export const createTicket = (email, description) => async (dispatch) =>{
     //TODO: create a ticket
-    dispatch({type: TICKET_CREATE_REQUEST});
+    dispatch({type: TICKET_CREATE_REQUEST, payload: {email, description}});
     try {
-        const { data } = await Axios.post('/api/tickets', ticket);
+        const { data } = await Axios.post('/api/tickets', {email, description});
         dispatch({type: TICKET_CREATE_SUCCESS, payload: data});
     } catch (error) {
         const message = error.response && error.response.data.message 
