@@ -1,84 +1,42 @@
 import React, {Component} from 'react';
 import { render } from 'react-dom';
 import { StyleSheet, Button, StatusBar, Text, View, Alert, Box, TouchableWithoutFeedback, TouchableOpacity, SafeAreaView, Platform, TextInput, KeyboardAvoidingView, ImageBackground } from 'react-native';
+import {WebView} from "react-native-webview";
 import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
+
+const orderHtml = require("../android/src/main/assets/orderTableHtml.html")
 
 var orderFlag = 0;
 var formFlag = 1;
 var profileFlag = 0;
 
 
-class adminTickets extends Component {
-    constructor() {
-        super();
 
-        this.state
-    }
-}
-
-
-/*function adminTickets(props) {
-
-    if (orderFlag == 1) {
-        return adminOrders();
-    }
-    else if (formFlag == 1) {
-        return adminForm();
-    }
-    
-}*/
-
-function adminOrders(props) {
+function adminTickets(props) {
     return (
-        console.log("hi"),
         <View style={styles.MaterializeContainer}>
             
-            <Text style={styles.loadInPage}>Test Orders</Text>
-
             <StatusBar barStyle="light-content" />
             <MaterialIconTextButtonsFooter
             style={styles.materialIconTextButtonsFooter}
             ></MaterialIconTextButtonsFooter>
+
+            <Text style={styles.loadInPage}>Current Orders</Text>
+
+            <WebView style={styles.containerTable} source={{uri: "file:C:/orderSystem/html/orderTableHtml.html"}}/>
             
         </View>
     );
 }
 
-function adminForm() {
-    return (
 
-        <View style={styles.MaterializeContainer}>
-            
-            <Text style={styles.loadInPage}>Test Forms</Text>
-            {console.log("hi")}
-            <StatusBar barStyle="light-content" />
-            <MaterialIconTextButtonsFooter
-            style={styles.materialIconTextButtonsFooter}
-            ></MaterialIconTextButtonsFooter>
-            
-        </View>
-    );
-}
 
-function loadOrders() {
-    orderFlag = 1;
-    formFlag = 0;
-    profileFlag = 0;
-    adminTickets();
-}
+
 
 function MaterialIconTextButtonsFooter(props) {
     return (
       <View style={[styles.container, props.style]}>
-        <TouchableOpacity style={styles.buttonWrapper1}
-          onPress={() => loadOrders()}>
-          
-          <MaterialCommunityIconsIcon
-            name="alert-circle-outline"
-            style={styles.icon1}
-          ></MaterialCommunityIconsIcon>
-          <Text style={styles.ticketsOrders}>Tickets/Orders</Text>
-        </TouchableOpacity>
+        
         <TouchableOpacity style={styles.activeButtonWrapper}>
           <MaterialCommunityIconsIcon
             name="library-books"
@@ -100,7 +58,7 @@ function MaterialIconTextButtonsFooter(props) {
 const styles = StyleSheet.create({
     MaterializeContainer: {
       flex: 1,
-      justifyContent: 'flex-end',
+      justifyContent: 'flex-start',
       backgroundColor: '#282c34'
     },
     materialIconTextButtonsFooter: {
@@ -108,11 +66,13 @@ const styles = StyleSheet.create({
       width: '100%',
       backgroundColor: "rgba(222,222,222,1)",
       bottom: 0,
+      marginBottom: 0
     },
     loadInPage: {
-        
+        marginVertical: 20,
         color: 'white',
-        fontSize: 80
+        fontSize: 22,
+        textAlign: 'center'
     },
 
     container: {
@@ -127,13 +87,22 @@ const styles = StyleSheet.create({
         shadowRadius: 1.2,
         elevation: 3
       },
+
+      containerTable: {
+        textAlign: 'center',
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#282c34",
+        color:'white'
+      },
+
       buttonWrapper1: {
         flex: 1,
         paddingTop: 8,
         paddingBottom: 10,
         paddingHorizontal: 12,
-        minWidth: 80,
-        maxWidth: 168,
+        
+        maxWidth: '50%',
         alignItems: "center"
       },
       icon1: {
@@ -154,8 +123,8 @@ const styles = StyleSheet.create({
         paddingTop: 6,
         paddingBottom: 10,
         paddingHorizontal: 12,
-        minWidth: 80,
-        maxWidth: 168,
+        
+        maxWidth: '50%',
         alignItems: "center"
       },
       activeIcon: {
@@ -176,8 +145,8 @@ const styles = StyleSheet.create({
         paddingTop: 8,
         paddingBottom: 10,
         paddingHorizontal: 12,
-        minWidth: 80,
-        maxWidth: 168,
+        
+        maxWidth: '50%',
         alignItems: "center"
       },
       icon2: {
