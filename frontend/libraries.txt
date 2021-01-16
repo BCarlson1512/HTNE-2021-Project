@@ -3,3 +3,5 @@ libraries
 react-native-webbview: npm i react-native-webview
 
 react-native-table-componenet: npm install react-native-table-component
+
+npm install bcryptjs jsonwebtoken express express-async-handler nodemon mongoose
