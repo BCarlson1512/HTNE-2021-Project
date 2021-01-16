@@ -6,7 +6,8 @@ export default function Ticket(props){
     const { ticket } = props;
     return (
         <div key={ticket._id}>
-            <h1>Ticket # {ticket._id} </h1>
+            <h1>Email {ticket.email}</h1>
+            <h2>Name {ticket.userDescription}</h2>
             <Link to="/ticket/:_id"></Link>
         </div>
     )

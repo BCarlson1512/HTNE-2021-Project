@@ -1,7 +1,7 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createTicket } from '../actions/ticketActions';
-import { TICKET_CREATE_RESET } from '../constants/ticketConstants';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 
@@ -11,22 +11,17 @@ export default function CreateTicketScreen(props) {
     const [email, setEmail] = useState('');
 
     const ticketCreate = useSelector(state => state.ticketCreate);
-    const {loading, success, error} = ticketCreate;
-
+    const {loading, success, error, ticket} = ticketCreate;
     const dispatch = useDispatch();
 
     const submitHandler = (e) => {
         e.preventDefault();
-        console.log(email)
-        console.log(desc)
-        dispatch(createTicket({email, desc}));
+        dispatch(createTicket(email, desc));
+        props.history.push(`/tickets`);
     }
     useEffect(() => {
-        if ( success ) {
-            dispatch({type: TICKET_CREATE_RESET});
-        } 
-    }, [dispatch, props.history, success, error]);
-
+        
+    }, [dispatch, props.history, success, error, ticket]);
     return (
         <div>
             <div className="account">

@@ -11,24 +11,25 @@ import {TICKET_LIST_FAIL,
         TICKET_DETAILS_SUCCESS,
         TICKET_DETAILS_FAIL, } from "../constants/ticketConstants";
 
-export const listTicketReducer = (state={tickets:[]}, action) => (dispatch, getState) => {
+export const listTicketReducer = (state={tickets:[], loading: true}, action) => (dispatch, getState) => {
     switch (action.type) {
         case TICKET_LIST_REQUEST:
             return {loading: true};
         case TICKET_LIST_SUCCESS:
-            return {loading: false, success: true};
+            return {loading: false, success: true, tickets: action.payload};
         case TICKET_LIST_FAIL:
             return {loading: false, error: action.payload}
         default: return state;
     }
 }
 
-export const createTicketReducer = (state = {}, action) => (dispatch, getState) => {
+export const createTicketReducer = (state = {loading: true, success:false, ticket:{}}, action) => (dispatch, getState) => {
     switch (action.type) {
+        
         case TICKET_CREATE_REQUEST:
             return {loading: true};
         case TICKET_CREATE_SUCCESS:
-            return {loading:false, ticket: action.payload};
+            return {loading:false, success: true, ticketCreate: action.payload};
         case TICKET_CREATE_FAIL:
             return {loading: false, error: action.payload};
         case TICKET_CREATE_RESET:
