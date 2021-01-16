@@ -7,7 +7,17 @@ var orderFlag = 0;
 var formFlag = 1;
 var profileFlag = 0;
 
-function adminTickets(props) {
+
+class adminTickets extends Component {
+    constructor() {
+        super();
+
+        this.state
+    }
+}
+
+
+/*function adminTickets(props) {
 
     if (orderFlag == 1) {
         return adminOrders();
@@ -16,7 +26,7 @@ function adminTickets(props) {
         return adminForm();
     }
     
-}
+}*/
 
 function adminOrders(props) {
     return (
