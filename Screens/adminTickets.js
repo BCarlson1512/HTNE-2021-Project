@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { render } from 'react-dom';
-import { StyleSheet, Button, ScrollView, StatusBar, Text, View, Alert, Box, TouchableWithoutFeedback, TouchableOpacity, SafeAreaView, Platform, TextInput, KeyboardAvoidingView, ImageBackground } from 'react-native';
+import { StyleSheet, Button, Footer, ScrollView, StatusBar, Text, View, Alert, Box, TouchableWithoutFeedback, TouchableOpacity, SafeAreaView, Platform, TextInput, KeyboardAvoidingView, ImageBackground } from 'react-native';
 import {Table, TableWrapper, Row, Rows, Col, Cols, Cell} from "react-native-table-component";
 import {MaterialCommunityIconsIcon} from "react-native-vector-icons/MaterialCommunityIcons";
 
@@ -17,31 +17,12 @@ export default class adminTickets extends Component {
     
     super(props);
     this.state = {
-      tableHead: ['Ticket Number', 'Name', 'Email', 'Description'],
+      tableHead: ['E-Mail', 'Description', 'Status'],
       tableData: [
-        ["b00bs", "Smittty", "downloadmoreram@leetcode.com", "i wanna bash my head into a wall"],
-        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
-        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
-        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
-        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
-        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
-        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
-        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
-        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
-        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
-        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
-        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
-        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
-        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
-        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
-        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
-        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
-        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
-        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
-        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
-        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
-        ["1234", "John Deer", "bepis@bepis.com", "I want to die"]
-
+        ["bepis@bepis.com", "Looking for a web application", "Incomplete"],
+        ["john@deer.com", "Looking at purchasing a product", "Complete"],
+        ["john@deer.com", "Looking at purchasing a product", "Complete"],
+        
       ]
     }
   }
@@ -53,18 +34,26 @@ export default class adminTickets extends Component {
       
 
       return (
+        <SafeAreaView style={styles.SafeAreaContainer}>
         <ScrollView style={styles.MaterializeContainer}>
-            
-            
-
             <Text style={styles.loadInPage}>Current Orders</Text>
 
             <Table borderStyle={{borderWidth: 2, borderColor: '#fff' }}>
               <Row data={this.state.tableHead} style={styles.head}/>
               <Rows data={this.state.tableData} textStyle={styles.text}/>
             </Table>
-            
         </ScrollView>
+        
+
+          <TouchableOpacity title="Profile Options" style={styles.button1}>
+            <Text style={styles.text1}>Profile Options</Text>
+          </TouchableOpacity>
+          <TouchableOpacity title="Form Options (Coming Soon)" style={styles.button2}>
+            <Text style={styles.text2}>Form Options (Coming Soon!)</Text>
+          </TouchableOpacity>
+
+
+        </SafeAreaView>
       );
     }
 }
@@ -77,10 +66,13 @@ export default class adminTickets extends Component {
 
 const styles = StyleSheet.create({
     MaterializeContainer: {
-      flex: 1,
+      flex: 0.9,
+      backgroundColor: '#282c34', 
       
-      backgroundColor: '#282c34',
-      marginBottom: 60,
+    },
+    SafeAreaContainer: {
+      flex: 1,
+      backgroundColor: '#fff'
     },
     materialIconTextButtonsFooter: {
       flex: 0.1,
@@ -93,12 +85,49 @@ const styles = StyleSheet.create({
         marginVertical: 60,
         color: 'white',
         fontSize: 22,
-        textAlign: 'center'
-        
+        textAlign: 'center',
+        marginBottom: 60,
     },
 
     head: { height: 40, backgroundColor: '#f1f8ff', color:'black', textAlign:'center'},
-    text: { margin: 6, color: 'white', textAlign:'center'},
+    text: {
+      color: 'white', 
+      textAlign:'center',
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: 'dodgerblue',
+      
+    },
+
+    text1: {
+      color: 'white', 
+      textAlign:'center',
+      alignItems: 'center',
+      justifyContent: 'center',
+     
+      height: 40,
+    },
+
+    text2: {
+      color: 'white', 
+      textAlign:'center',
+      alignItems: 'center',
+      justifyContent: 'center',
+      
+      height: 40,
+    },
+
+    button1: {
+      alignItems: "center",
+      backgroundColor: "dodgerblue",
+      padding: 10
+    },
+
+    button2: {
+      alignItems: "center",
+      backgroundColor: "darkblue",
+      padding: 10
+    },
 
     container: {
         backgroundColor: "#FFF",
@@ -122,13 +151,12 @@ const styles = StyleSheet.create({
       },
 
       buttonWrapper1: {
-        flex: 1,
+        
         paddingTop: 8,
         paddingBottom: 10,
         paddingHorizontal: 12,
-        
-        maxWidth: '50%',
-        alignItems: "center"
+        alignItems: "center",
+        color: 'black'
       },
       icon1: {
         backgroundColor: "transparent",
@@ -166,7 +194,7 @@ const styles = StyleSheet.create({
         alignSelf: "center"
       },
       buttonWrapper2: {
-        flex: 1,
+        
         paddingTop: 8,
         paddingBottom: 10,
         paddingHorizontal: 12,
