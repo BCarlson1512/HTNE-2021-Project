@@ -9,4 +9,12 @@ ticketRouter.get("/seed", expressAsyncHandler(async(req,res) => {
     res.send(createdTickets);
 }));
 
+
+ticketRouter.post("/create", expressAsyncHandler(async(req,res) =>{ 
+    //TODO: CREATE NEW TICKET
+}));
+
+ticketRouter.put("/update", expressAsyncHandler(async(req,res) => {
+    //TODO: UPDATE TICKET INFORMATION
+}));
 export default ticketRouter;
