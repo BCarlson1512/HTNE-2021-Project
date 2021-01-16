@@ -1,0 +1,19 @@
+{
+  "name": "htne-2021-project",
+  "version": "1.0.0",
+  "description": "Project for HTNE 2021",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BCarlson1512/HTNE-2021-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BCarlson1512/HTNE-2021-Project/issues"
+  },
+  "homepage": "https://github.com/BCarlson1512/HTNE-2021-Project#readme"
+}
