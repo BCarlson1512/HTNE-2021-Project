@@ -5,9 +5,87 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #282c34;
+  height: 100vh;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+form{
+  text-align: center;
+}
+
+form >div >div {
+  padding: 0.1rem;
+}
+textarea {
+  margin-top: 1rem;
+}
+.grid-container {
+  display: grid;
+  grid-template-areas: 'header' 'main' 'footer';
+  grid-template-columns: 1fr;
+  grid-template-rows: 5rem 1fr 5rem;
+  height: 100vh;
+}
+
+header {
+  grid-area: header;
+  background-color: rgb(0, 195, 255);
+}
+
+main {
+  grid-area: main;
+  padding: 1rem;
+}
+
+footer {
+  grid-area: footer;
+  background-color: rgb(0, 195, 255);
+}
+
+
+.account{
+  color: white;
+  font-size: 20px;
+}
+.loginButton{
+  background-color: rgb(0, 195, 255);
+  margin-top: 20px;
+  padding: 10px;
+  color: white;
+  width: 200px;
+  border-radius: 25px;
+}
+.loginButton.submit{
+width: 300px;
+}
+.loginButton:hover{
+  opacity: 0.6;
+  cursor: pointer;
+}
+.backround{
+  background-color: white;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 100px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  border-radius: 25px;
+}
+.ticket{
+  padding-top: 40px;
+  padding-bottom: 100px;
+}
+p.passAndUserText{
+color: blue;
+}
+.inputs{
+display: block;
+margin-bottom: 30px;
+
 }
