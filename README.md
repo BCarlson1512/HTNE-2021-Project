@@ -1,6 +1,6 @@
 # HTNE-2021-Project
 
-Creators: Kieran Campbell, Ben Carlson, Zach Silverman, Nick Vinden
+Creators: Kieran Campbell, Ben Carlson, Zach Silverman
 
 Using our app...
 
