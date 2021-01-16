@@ -1,4 +1,3 @@
-import './App.css';
 import {BrowserRouter, Route} from 'react-router-dom';
 import loginScreen from './screens/loginScreen';
 import userRegisterScreen from './screens/userRegisterScreen';

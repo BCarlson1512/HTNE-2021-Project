@@ -8,6 +8,8 @@ app.get("/", (req, res) => {
     res.send("Server is ready");
 })
 
+app.use('/api/users', userRouter);
+
 app.listen(port, () => {
     console.log(`Server started on https://localhost:${port}`);
 });
