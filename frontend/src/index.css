@@ -13,7 +13,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.form{
+form{
     text-align: center;
 }
 .account{
@@ -27,6 +27,9 @@ code {
     color: white;
     width: 200px;
     border-radius: 25px;
+}
+.loginButton.submit{
+  width: 300px;
 }
 .loginButton:hover{
     opacity: 0.6;
@@ -42,6 +45,15 @@ code {
     text-align: center;
     border-radius: 25px;
 }
+.ticket{
+    padding-top: 40px;
+    padding-bottom: 100px;
+}
 p.passAndUserText{
   color: blue;
+}
+.inputs{
+  display: block;
+  margin-bottom: 30px;
+ 
 }
