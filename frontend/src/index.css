@@ -5,9 +5,43 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #282c34;
+  height: 100vh;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.form{
+    text-align: center;
+}
+.account{
+    color: white;
+    font-size: 20px;
+}
+.loginButton{
+    background-color: rgb(0, 195, 255);
+    margin-top: 20px;
+    padding: 10px;
+    color: white;
+    width: 200px;
+    border-radius: 25px;
+}
+.loginButton:hover{
+    opacity: 0.6;
+    cursor: pointer;
+}
+.backround{
+    background-color: white;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    border-radius: 25px;
+}
+p.passAndUserText{
+  color: blue;
 }
