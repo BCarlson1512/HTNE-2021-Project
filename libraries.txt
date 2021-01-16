@@ -1,3 +1,5 @@
 libraries
 
-react-native-webbview - npm i react-native-webview
+react-native-webbview: npm i react-native-webview
+
+react-native-table-componenet: npm install react-native-table-component

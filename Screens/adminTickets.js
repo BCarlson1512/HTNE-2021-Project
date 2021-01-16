@@ -1,65 +1,86 @@
 import React, {Component} from 'react';
 import { render } from 'react-dom';
-import { StyleSheet, Button, StatusBar, Text, View, Alert, Box, TouchableWithoutFeedback, TouchableOpacity, SafeAreaView, Platform, TextInput, KeyboardAvoidingView, ImageBackground } from 'react-native';
-import {WebView} from "react-native-webview";
-import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
+import { StyleSheet, Button, ScrollView, StatusBar, Text, View, Alert, Box, TouchableWithoutFeedback, TouchableOpacity, SafeAreaView, Platform, TextInput, KeyboardAvoidingView, ImageBackground } from 'react-native';
+import {Table, TableWrapper, Row, Rows, Col, Cols, Cell} from "react-native-table-component";
+import {MaterialCommunityIconsIcon} from "react-native-vector-icons/MaterialCommunityIcons";
 
-const orderHtml = require("../android/src/main/assets/orderTableHtml.html")
+//const orderHtml = require("../android/src/main/assets/orderTableHtml.html")
 
 var orderFlag = 0;
 var formFlag = 1;
 var profileFlag = 0;
 
 
+export default class adminTickets extends Component {
 
-function adminTickets(props) {
-    return (
-        <View style={styles.MaterializeContainer}>
+  constructor(props) {
+    
+    super(props);
+    this.state = {
+      tableHead: ['Ticket Number', 'Name', 'Email', 'Description'],
+      tableData: [
+        ["b00bs", "Smittty", "downloadmoreram@leetcode.com", "i wanna bash my head into a wall"],
+        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
+        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
+        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
+        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
+        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
+        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
+        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
+        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
+        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
+        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
+        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
+        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
+        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
+        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
+        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
+        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
+        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
+        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
+        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
+        ["1234", "John Deer", "bepis@bepis.com", "I want to die"],
+        ["1234", "John Deer", "bepis@bepis.com", "I want to die"]
+
+      ]
+    }
+  }
+
+
+    render () {
+      const state = this.state;
+
+      
+
+      return (
+        <ScrollView style={styles.MaterializeContainer}>
             
-            <StatusBar barStyle="light-content" />
-            <MaterialIconTextButtonsFooter
-            style={styles.materialIconTextButtonsFooter}
-            ></MaterialIconTextButtonsFooter>
+            
 
             <Text style={styles.loadInPage}>Current Orders</Text>
 
-            <WebView style={styles.containerTable} source={{uri: "file:C:/orderSystem/html/orderTableHtml.html"}}/>
+            <Table borderStyle={{borderWidth: 2, borderColor: '#fff' }}>
+              <Row data={this.state.tableHead} style={styles.head}/>
+              <Rows data={this.state.tableData} textStyle={styles.text}/>
+            </Table>
             
-        </View>
-    );
+        </ScrollView>
+      );
+    }
 }
 
 
 
 
 
-function MaterialIconTextButtonsFooter(props) {
-    return (
-      <View style={[styles.container, props.style]}>
-        
-        <TouchableOpacity style={styles.activeButtonWrapper}>
-          <MaterialCommunityIconsIcon
-            name="library-books"
-            style={styles.activeIcon}
-          ></MaterialCommunityIconsIcon>
-          <Text style={styles.formOptions}>Form Options</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonWrapper2}>
-          <MaterialCommunityIconsIcon
-            name="account-edit"
-            style={styles.icon2}
-          ></MaterialCommunityIconsIcon>
-          <Text style={styles.profile}>Profile</Text>
-        </TouchableOpacity>
-      </View>
-    );
-  }
+
 
 const styles = StyleSheet.create({
     MaterializeContainer: {
       flex: 1,
-      justifyContent: 'flex-start',
-      backgroundColor: '#282c34'
+      
+      backgroundColor: '#282c34',
+      marginBottom: 60,
     },
     materialIconTextButtonsFooter: {
       flex: 0.1,
@@ -69,11 +90,15 @@ const styles = StyleSheet.create({
       marginBottom: 0
     },
     loadInPage: {
-        marginVertical: 20,
+        marginVertical: 60,
         color: 'white',
         fontSize: 22,
         textAlign: 'center'
+        
     },
+
+    head: { height: 40, backgroundColor: '#f1f8ff', color:'black', textAlign:'center'},
+    text: { margin: 6, color: 'white', textAlign:'center'},
 
     container: {
         backgroundColor: "#FFF",
@@ -164,4 +189,3 @@ const styles = StyleSheet.create({
       },
   });
 
-export default adminTickets;
