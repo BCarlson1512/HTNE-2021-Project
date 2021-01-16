@@ -21,7 +21,7 @@ function App() {
           <Route path="/login" component={loginScreen} />
           <Route path="/register/user" component={userRegisterScreen} />
           <Route path="/register/seller" component={sellerRegisterScreen} />
-          <Route path="/" component={CreateTicketScreen} />
+          <Route exact path="/" component={CreateTicketScreen} />
           <Route path="/ticket/:_id" component={ViewTicketScreen} />
           <Route path="/tickets" component={TicketsScreen} />
         </main>
