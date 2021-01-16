@@ -18,11 +18,11 @@ form{
   text-align: center;
 }
 
-form >div {
-  padding: 1rem;
-}
 form >div >div {
-  padding: 0.25rem;
+  padding: 0.1rem;
+}
+textarea {
+  margin-top: 1rem;
 }
 .grid-container {
   display: grid;

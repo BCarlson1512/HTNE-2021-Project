@@ -9,16 +9,12 @@ ticketRouter.get("/seed", expressAsyncHandler(async(req,res) => {
     res.send(createdTickets);
 }));
 
-ticketRouter.get('/:id', expressAsyncHandler(async(req, res) => {
-
-}))
-
 ticketRouter.get('/mine', expressAsyncHandler(async(req,res) => {
     const tickets = await Ticket.find({user: req.user._id});
     res.send(tickets);
 }));
 
-ticketRouter.post("/", expressAsyncHandler(async(req,res) =>{ 
+ticketRouter.post("/create", expressAsyncHandler(async(req,res) =>{ 
     const ticket = new Ticket(
         {
             user: req.user._id,

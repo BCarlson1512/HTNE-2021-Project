@@ -18,7 +18,7 @@ export default function CreateTicketScreen(props) {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        dispatch(createTicket({name, email, desc}));
+        dispatch(createTicket({email, desc}));
     }
     useEffect(() => {
         if ( success ) {
@@ -34,8 +34,7 @@ export default function CreateTicketScreen(props) {
                     <h1> Submit a Request</h1>
                     <div className="inputs">
                         <div>
-                            <label htmlFor="name">Name </label>
-                            <input id="name" type="text" placeholder="Enter Name" value={name} required onChange={((e) => setName(e.target.name))} />
+                            <textarea id="Name" type="text" placeholder="Enter Your Name" value={name} onChange={((e) => setName(e.target.name))} rows="1" cols="30" />
                         </div>
                         <div>
                             <label htmlFor="email">Email </label>
