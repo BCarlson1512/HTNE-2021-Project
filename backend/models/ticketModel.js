@@ -6,9 +6,9 @@ const ticketSchema = new mongoose.Schema(
         seller: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true},
         userDescription: {type:String, required: true, default: "description goes here"},
         isApproved: {type: String, default: false},
-        sellerDetails: {
-            details: {type: String},
-            numHours: {type: Number},
+        sellerDetails : {
+            sellerComments: {type: String},
+            estimatedHours: {type: Number},
             cost: {type: Number},
         },
         isComplete: {type: Boolean, default: false},

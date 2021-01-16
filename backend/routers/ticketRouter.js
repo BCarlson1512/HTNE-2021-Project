@@ -25,6 +25,19 @@ ticketRouter.post("/create", expressAsyncHandler(async(req,res) =>{
 
 ticketRouter.put("/update", expressAsyncHandler(async(req,res) => {
     //TODO: UPDATE TICKET INFORMATION
-
+    const ticket = await Ticket.findById(req.params._id);
+    if (ticket) {
+        ticket.userDescription = req.body.userDescription + ticket.userDescription;
+        ticket.isApproved = req.body.isApproved || ticket.isApproved;
+        ticket.sellerDetails = {
+            sellerComments: req.body.sellerComments || ticket.sellerDetails.sellerComments,
+            estimatedHours: req.body.estimatedHours || ticket.sellerDetails.estimatedHours,
+            cost: req.body.cost || ticket.sellerDetails.cost,
+        }
+        ticket.isComplete = req.body.isComplete || ticket.isComplete,
+        ticket.isPaid = req.body.isPaid || ticket.isPaid,
+    }
+    const updatedTicket = await ticket.save();
+    res.send({message: "ticket saved", ticket: updatedTicket});
 }));
 export default ticketRouter;
