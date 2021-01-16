@@ -1,11 +1,10 @@
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
-import {thunk} from 'redux-thunk';
-import { createTicketReducer, listTicketReducer } from './src/reducers/ticketReducers';
-
+import { createTicketReducer, listTicketReducer } from './reducers/ticketReducers';
+import thunk from 'redux-thunk';
 const initialState = {};
 
 const reducer = combineReducers({
-    createTicket : createTicketReducer,
+    ticketCreate : createTicketReducer,
     listTicket : listTicketReducer,
 });
 

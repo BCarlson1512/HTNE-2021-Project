@@ -1,10 +1,12 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import userRouter from './routers/userRouter.js';
+import ticketRouter from './routers/ticketRouter.js';
 
 const app = express();
-app.use(expres.json());
+app.use(express.json());
 
-mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/HTNE2021_PROJECT', {
+mongoose.connect(process.env.MONGODB_URL || "mongodb+srv://BCARLSON1512:Pr0ski113f2@htne21.df32j.mongodb.net/test", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
@@ -13,7 +15,7 @@ mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/HTNE2021_PROJEC
 const port = process.env.PORT || 5000;
 
 app.use('/api/users', userRouter);
-app.use('/api/tickets', ticketModel);
+app.use('/api/tickets', ticketRouter);
 
 app.get("/", (req, res) => {
     res.send("Server is ready");
