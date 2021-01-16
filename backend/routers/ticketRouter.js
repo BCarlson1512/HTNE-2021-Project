@@ -15,17 +15,15 @@ ticketRouter.get('/mine', expressAsyncHandler(async(req,res) => {
     res.send(tickets);
 }));
 
-ticketRouter.post("/", expressAsyncHandler(async(req,res) =>{ 
+ticketRouter.post("/create", expressAsyncHandler(async(req,res) =>{ 
     const ticket = new Ticket(
         {
-            email: req.body.email,
-            userDescription: req.body.description,
+            email: req.body.email.email,
+            userDescription: req.body.email.desc,
         }
     );
     const createdTicket = await ticket.save();
-    res.status(201).send({
-
-    });
+    res.status(201).send({message: "created ticket", ticket: createdTicket});
 }));
 
 ticketRouter.get('/', expressAsyncHandler(async(req,res)=>{
