@@ -28,8 +28,8 @@ userRouter.post('/register/user', expressAsyncHandler(async(req,res) =>{
         _id: createdUser._id,
         name: createdUser.name,
         email: req.body.email,
-        isAdmin: createdUser.isAdmin,
-        isSeller: createdUser.isSeller,
+        isAdmin: false,
+        isSeller: false,
         token: generateToken(user),
     });
 }));
@@ -48,7 +48,7 @@ userRouter.get('/register/seller', expressAsyncHandler(async(req,res) => {
         name: createdSeller.name,
         email: createdSeller.email,
         isAdmin: createdSeller.isAdmin,
-        isSeller: createdSeller.isSeller,
+        isSeller: true,
         token: generateToken(user),
     });
 }));
@@ -88,6 +88,16 @@ userRouter.put('/profile', expressAsyncHandler(async(req,res) => {
             isSeller: updatedUser.isSeller,
             token: generateToken(user),
         })
+    }
+}));
+
+userRouter.delete('/:id', expressAsyncHandler(async(req,res) => {
+    const user = await User.findById(req.params.id);
+    if (user) {
+        const deleteUser = await user.remove();
+        res.send({message: "User Successfully Removed", user: deleteUser});
+    } else {
+        res.status(404).send({message: "User Not Found"});
     }
 }));
 
