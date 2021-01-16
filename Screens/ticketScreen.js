@@ -1,11 +1,7 @@
 import React from 'react';
 
-function ticketScreen(props) {
-    return (
-        <div>
-            
-        </div>
-    );
+class ticketScreen extends Component {
+    
 }
 
 export default ticketScreen;
