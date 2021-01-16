@@ -1,11 +1,12 @@
 import express from 'express'
 import expressAsyncHandler from 'express-async-handler';
 import Ticket from '../models/ticketModel.js';
+import data from '../data.js'
 
 const ticketRouter = express.Router();
 
 ticketRouter.get("/seed", expressAsyncHandler(async(req,res) => {
-    const createdTickets = Ticket.insertMany(data.tickets);
+    const createdTickets = await Ticket.insertMany(data.tickets);
     res.send(createdTickets);
 }));
 
@@ -17,14 +18,18 @@ ticketRouter.get('/mine', expressAsyncHandler(async(req,res) => {
 ticketRouter.post("/create", expressAsyncHandler(async(req,res) =>{ 
     const ticket = new Ticket(
         {
-            user: req.user._id,
-            seller: req.seller._id,
-            userDescription: req.body.userDescription,
+            email: req.body.email.email,
+            userDescription: req.body.email.desc,
         }
     );
     const createdTicket = await ticket.save();
-    res.status(201).send({message: "Ticket Created", ticket: createdTicket});
+    res.status(201).send({message: "created ticket", ticket: createdTicket});
 }));
+
+ticketRouter.get('/', expressAsyncHandler(async(req,res)=>{
+    const tickets = await Ticket.find({});
+    res.send(tickets);
+}))
 
 ticketRouter.put("/update", expressAsyncHandler(async(req,res) => {
     const ticket = await Ticket.findById(req.params._id);

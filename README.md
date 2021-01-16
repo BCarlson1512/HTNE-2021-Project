@@ -16,4 +16,4 @@ bcryptjs
 axios
 redux
 redux-thunk
-react-hooks
+nodemon

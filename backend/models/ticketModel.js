@@ -4,9 +4,9 @@ const ticketSchema = new mongoose.Schema(
     {
         user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
         seller: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-        email: {type: String, required: true},
-        userDescription: {type:String, required: true, default: "description goes here"},
-        isApproved: {type: String, default: false},
+        email: {type: String},
+        userDescription: {type:String, required: true},
+        isApproved: {type: Boolean, default: false},
         sellerDetails : {
             sellerComments: {type: String},
             estimatedHours: {type: Number},
