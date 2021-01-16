@@ -20,9 +20,4 @@ const data = {
             isSeller: true,
         },
     ],
-    tickets: [
-        {
-
-        }
-    ]
 }
