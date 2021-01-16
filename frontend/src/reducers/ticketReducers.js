@@ -28,7 +28,7 @@ export const createTicketReducer = (state = {}, action) => (dispatch, getState) 
         case TICKET_CREATE_REQUEST:
             return {loading: true};
         case TICKET_CREATE_SUCCESS:
-            return {loading:false, ticketInfo: action.payload};
+            return {loading:false, ticket: action.payload};
         case TICKET_CREATE_FAIL:
             return {loading: false, error: action.payload};
         case TICKET_CREATE_RESET:
@@ -42,7 +42,7 @@ export const ticketInfoReducer = (state = {}, action) => (dispatch, getState) =>
         case TICKET_DETAILS_REQUEST:
             return {loading: true};
         case TICKET_DETAILS_SUCCESS:
-            return {loading: false, ticketInfo: action.payload};
+            return {loading: false, infoTicket: action.payload};
         case TICKET_DETAILS_FAIL:
             return {loading: false, error: action.payload};
         default: return state;

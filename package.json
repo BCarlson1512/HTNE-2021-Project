@@ -1,5 +1,6 @@
 {
   "name": "htne-2021-project",
+  "type": "module",
   "version": "1.0.0",
   "description": "Project for HTNE 2021",
   "main": "index.js",
@@ -23,6 +24,7 @@
     "express": "^4.17.1",
     "express-async-handler": "^1.1.4",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.11.12"
+    "mongoose": "^5.11.12",
+    "nodemon": "^2.0.7"
   }
 }
